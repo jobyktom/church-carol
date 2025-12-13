@@ -69,10 +69,14 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onStart }) => {
           <ArrowRight className="w-5 h-5 text-slate-400 group-hover:text-slate-900 group-hover:translate-x-1 transition-all" />
         </button>
         
-        <div className="mt-16 text-center space-y-2 opacity-60">
+        <div className="mt-16 text-center space-y-4 opacity-80">
             <p className="text-white text-[10px] font-medium uppercase tracking-[0.2em] font-sans">
               Joy to the World
             </p>
+            <div className="flex flex-col items-center gap-1">
+              <span className="text-[10px] text-slate-400 uppercase tracking-widest">Designed & Created by</span>
+              <span className="text-xs font-cinzel text-amber-100/90">Jobby Kuttamperoor Tom</span>
+            </div>
         </div>
       </div>
     </div>
