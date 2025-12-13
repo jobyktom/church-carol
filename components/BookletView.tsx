@@ -14,7 +14,7 @@ export const BookletView: React.FC<BookletViewProps> = ({ songs, metadata }) => 
       <div className="booklet-page h-[297mm] w-[210mm] relative flex flex-col items-center justify-center text-center p-16 page-break-after">
         <div className="flex flex-col items-center gap-4">
           <h1 className="text-4xl font-bold uppercase tracking-wide text-black">
-            St. Monica Mission
+            St. George Mission
           </h1>
           <h2 className="text-3xl font-medium text-black">
             Christmas Carol Songs

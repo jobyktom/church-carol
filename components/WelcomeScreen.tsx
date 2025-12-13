@@ -39,7 +39,7 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onStart }) => {
         </div>
         
         <h1 className="font-cinzel text-5xl md:text-6xl font-bold text-center mb-4 leading-tight tracking-tight drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)] text-amber-50">
-          St. Monica<br/>
+          St. George<br/>
           <span className="text-amber-400">Mission</span>
         </h1>
         

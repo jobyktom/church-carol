@@ -586,7 +586,7 @@ In a one-horse open sleigh (2)`
   }
 ];
 
-export const APP_TITLE = "St. Monica Mission Christmas Carol Songs Lyrics";
+export const APP_TITLE = "St. George Mission Christmas Carol Songs Lyrics";
 
 export const HOUSE_SCHEDULE: ScheduleDay[] = [
   {

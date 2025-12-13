@@ -93,7 +93,7 @@ const App: React.FC = () => {
           </div>
           <div className="flex flex-col overflow-hidden">
              <h1 className="font-cinzel font-bold text-amber-50 text-lg md:text-xl leading-none tracking-wide truncate">
-               St. Monica Mission
+               St. George Mission
              </h1>
              <span className="text-xs text-red-200 font-bold uppercase tracking-[0.15em] mt-1 truncate">
                Christmas Carols
