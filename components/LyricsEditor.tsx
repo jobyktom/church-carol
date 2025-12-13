@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { Song } from '../types';
-import { ChevronLeft, Music, Snowflake } from 'lucide-react';
+import { ChevronLeft, Music } from 'lucide-react';
 
 interface LyricsEditorProps {
   song: Song;
@@ -11,175 +11,146 @@ export const LyricsEditor: React.FC<LyricsEditorProps> = ({ song, onBack }) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [showManglish, setShowManglish] = useState(false);
 
-  // Scroll to top when song changes
   useEffect(() => {
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollTop = 0;
     }
   }, [song.id]);
 
-  // Determine if we should show the toggle.
-  // We only show it if Manglish lyrics exist AND they are different from the main lyrics.
-  // This prevents the toggle from appearing on purely English songs.
   const hasManglish = !!song.lyricsManglish && 
     (song.lyrics.replace(/\s/g, '') !== song.lyricsManglish.replace(/\s/g, ''));
 
   return (
-    <div className="flex-1 h-full flex flex-col bg-amber-50/20 overflow-hidden relative">
+    <div className="flex-1 h-full flex flex-col bg-christmas-cream relative">
       
-      {/* Festive Background Animations */}
-      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
-        {/* Subtle Falling Snowflakes */}
-        {[...Array(8)].map((_, i) => (
-          <div 
-            key={`snow-${i}`}
-            className="snowflake"
-            style={{
-              left: `${Math.random() * 100}%`,
-              animationDuration: `${15 + Math.random() * 20}s`,
-              animationDelay: `-${Math.random() * 15}s`,
-              fontSize: `${0.8 + Math.random() * 1}rem`,
-              color: 'rgba(148, 163, 184, 0.2)',
-              textShadow: '0 0 1px rgba(148, 163, 184, 0.1)'
-            }}
-          >
-            ❄
-          </div>
-        ))}
+      {/* Background Texture */}
+      <div className="absolute inset-0 pointer-events-none z-0 opacity-40 mix-blend-multiply" 
+           style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")` }}>
       </div>
 
-      {/* Decorative background corners */}
-      <div className="absolute top-0 right-0 w-32 h-32 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-red-500/5 to-transparent pointer-events-none z-0"></div>
-      
-      {/* Mobile Navigation Bar */}
-      <div className="bg-white/90 backdrop-blur-md border-b border-amber-100 py-3 px-3 flex items-center justify-between shadow-sm z-30 sticky top-0 flex-shrink-0 md:hidden h-16">
+      {/* Mobile Navbar */}
+      <div className="bg-white/80 backdrop-blur-md border-b border-stone-200/60 py-2 px-3 flex items-center justify-between shadow-sm z-30 sticky top-0 md:hidden h-14">
         <button 
           onClick={onBack}
-          className="flex items-center gap-2 text-slate-700 px-2 py-2 rounded-lg transition-colors active:bg-slate-100"
-          aria-label="Back"
+          className="flex items-center gap-1.5 text-slate-700 px-2 py-1.5 rounded-lg active:bg-stone-100"
         >
-          <ChevronLeft className="w-6 h-6 text-green-800" />
-          <span className="font-cinzel font-bold text-base text-green-900">Back</span>
+          <ChevronLeft className="w-5 h-5 text-christmas-green" />
+          <span className="font-cinzel font-bold text-sm text-christmas-green">Back</span>
         </button>
         
-        {/* Mobile Toggle (Segmented Control) */}
         {hasManglish && (
-          <div className="flex bg-slate-100 p-1 rounded-lg border border-slate-200">
+          <div className="flex bg-stone-100 p-0.5 rounded-lg border border-stone-200">
             <button
               onClick={() => setShowManglish(false)}
-              className={`px-3 py-1.5 rounded-md text-xs font-bold transition-all ${
+              className={`px-3 py-1 rounded-[4px] text-[10px] font-bold uppercase tracking-wide transition-all ${
                 !showManglish 
-                  ? 'bg-white text-green-800 shadow-sm' 
-                  : 'text-slate-500'
+                  ? 'bg-white text-christmas-green shadow-sm ring-1 ring-black/5' 
+                  : 'text-slate-400'
               }`}
             >
-              Malayalam
+              Mal
             </button>
             <button
               onClick={() => setShowManglish(true)}
-              className={`px-3 py-1.5 rounded-md text-xs font-bold transition-all ${
+              className={`px-3 py-1 rounded-[4px] text-[10px] font-bold uppercase tracking-wide transition-all ${
                 showManglish 
-                  ? 'bg-white text-green-800 shadow-sm' 
-                  : 'text-slate-500'
+                  ? 'bg-white text-christmas-green shadow-sm ring-1 ring-black/5' 
+                  : 'text-slate-400'
               }`}
             >
-              Transliteration
+              Eng
             </button>
           </div>
         )}
       </div>
 
       {/* Desktop Header */}
-      <div className="hidden md:flex bg-white/50 backdrop-blur-sm border-b border-amber-100 px-8 py-5 items-center justify-between sticky top-0 z-20">
-         <div className="flex items-center gap-4">
-            <div className="w-10 h-10 bg-green-50 border border-green-100 rounded-full flex items-center justify-center text-green-700">
-               <Music className="w-5 h-5" />
-            </div>
-            <div>
-               <span className="text-xs font-bold text-amber-600 uppercase tracking-widest block mb-0.5 font-cinzel">Now Reading</span>
-               <h2 className="text-lg font-bold text-gray-900 malayalam-text truncate">
-                 <span className="font-cinzel text-red-800 mr-2">Song {song.id}</span> 
-                 <span className="text-gray-400 mx-1">|</span> 
-                 {song.title}
-               </h2>
-            </div>
+      <div className="hidden md:flex bg-white/60 backdrop-blur-sm border-b border-stone-200/60 px-8 py-4 items-center justify-between sticky top-0 z-20">
+         <div className="flex items-center gap-3">
+            <span className="text-[10px] font-bold text-christmas-gold uppercase tracking-[0.2em] font-cinzel pt-0.5">
+              Now Reading
+            </span>
          </div>
 
-         {/* Desktop Toggle (Segmented Control) */}
          {hasManglish && (
-           <div className="flex bg-slate-100 p-1 rounded-lg border border-slate-200">
+           <div className="flex bg-stone-100 p-1 rounded-lg border border-stone-200/80">
              <button
                onClick={() => setShowManglish(false)}
-               className={`px-4 py-1.5 rounded-md text-sm font-bold transition-all font-cinzel ${!showManglish ? 'bg-white text-green-800 shadow-sm ring-1 ring-black/5' : 'text-slate-500 hover:text-slate-700'}`}
+               className={`px-4 py-1.5 rounded-md text-xs font-bold uppercase tracking-wider transition-all ${!showManglish ? 'bg-white text-christmas-green shadow-sm ring-1 ring-black/5' : 'text-slate-400 hover:text-slate-600'}`}
              >
                Malayalam
              </button>
              <button
                onClick={() => setShowManglish(true)}
-               className={`px-4 py-1.5 rounded-md text-sm font-bold transition-all font-cinzel ${showManglish ? 'bg-white text-green-800 shadow-sm ring-1 ring-black/5' : 'text-slate-500 hover:text-slate-700'}`}
+               className={`px-4 py-1.5 rounded-md text-xs font-bold uppercase tracking-wider transition-all ${showManglish ? 'bg-white text-christmas-green shadow-sm ring-1 ring-black/5' : 'text-slate-400 hover:text-slate-600'}`}
              >
-               Transliteration
+               Manglish
              </button>
            </div>
          )}
       </div>
 
-      {/* Scrollable Content */}
+      {/* Content Area */}
       <div 
         ref={scrollContainerRef}
         className="flex-1 overflow-y-auto overscroll-contain relative z-10"
-        style={{ WebkitOverflowScrolling: 'touch' }}
       >
-        <div className="max-w-3xl mx-auto px-4 py-6 pb-24 md:px-6 md:py-12 relative">
+        <div className="max-w-3xl mx-auto px-5 py-8 md:px-10 md:py-16">
             
-            {/* Title Section */}
-            <div className="mb-6 md:mb-10 text-center relative break-words">
-              <div className="inline-flex items-center justify-center p-3 bg-red-50 rounded-full mb-3 text-red-600 md:hidden shadow-inner">
-                <Music className="w-6 h-6" />
-              </div>
-              <h3 className="text-2xl md:text-4xl font-bold text-green-900 malayalam-text leading-snug drop-shadow-sm px-2">
+            {/* Song Header */}
+            <div className="mb-10 text-center">
+              <span className="inline-block px-3 py-1 border border-christmas-gold/30 rounded-full text-christmas-gold text-xs font-bold font-cinzel mb-4 bg-amber-50/50">
+                Song #{song.id}
+              </span>
+              <h1 className="text-3xl md:text-5xl font-bold text-christmas-green malayalam-text leading-tight mb-3">
                 {song.title}
-              </h3>
+              </h1>
               {song.originalTitle && song.originalTitle !== song.title && (
-                <p className="text-amber-700/80 font-cinzel font-medium text-sm md:text-base mt-2 md:mt-3 border-t border-amber-200/50 inline-block pt-2 md:pt-3 px-4 md:px-8">
+                <p className="text-slate-500 font-serif italic text-lg md:text-xl">
                   {song.originalTitle}
                 </p>
               )}
             </div>
             
-            {/* Lyrics Section */}
+            {/* Lyrics Card */}
             <div className={`
-              relative z-10 bg-white/95 backdrop-blur-sm shadow-xl shadow-amber-900/5 rounded-2xl border border-white/50 transition-all
-              p-5 md:p-12
-              ${showManglish ? 'font-sans text-lg md:text-xl' : 'malayalam-text text-xl md:text-2xl'}
+              relative bg-white shadow-xl shadow-stone-200/50 rounded-xl md:rounded-2xl border border-stone-100
+              p-6 md:p-16 transition-all duration-300
+              ${showManglish ? 'font-serif' : 'malayalam-text'}
             `}>
-                {/* Decoration Icons on Card (Static) */}
-                <Snowflake className="absolute top-3 right-3 md:top-4 md:right-4 w-5 h-5 md:w-6 md:h-6 text-slate-100 rotate-12" />
-                <Snowflake className="absolute bottom-3 left-3 md:bottom-4 md:left-4 w-5 h-5 md:w-6 md:h-6 text-slate-100 -rotate-12" />
+                {/* Decorative corners */}
+                <div className="absolute top-4 left-4 w-4 h-4 border-t-2 border-l-2 border-christmas-gold/20"></div>
+                <div className="absolute top-4 right-4 w-4 h-4 border-t-2 border-r-2 border-christmas-gold/20"></div>
+                <div className="absolute bottom-4 left-4 w-4 h-4 border-b-2 border-l-2 border-christmas-gold/20"></div>
+                <div className="absolute bottom-4 right-4 w-4 h-4 border-b-2 border-r-2 border-christmas-gold/20"></div>
 
-                <div className="whitespace-pre-wrap break-words leading-[1.8] md:leading-[2.2] text-slate-800 font-medium text-center select-text w-full">
+                <div className={`
+                  whitespace-pre-wrap text-center select-text w-full text-slate-800
+                  ${showManglish ? 'text-[1.15rem] md:text-[1.35rem] leading-[2]' : 'text-[1.25rem] md:text-[1.5rem] leading-[1.8] font-medium'}
+                `}>
                   {showManglish && hasManglish ? song.lyricsManglish : song.lyrics}
                 </div>
                 
                 {showManglish && !hasManglish && (
-                  <div className="text-slate-400 italic mt-6 md:mt-8 text-center text-sm md:text-base border-t border-slate-100 pt-4">
-                    [Transliteration not available for this song]
+                  <div className="text-slate-400 italic mt-8 text-center border-t border-slate-100 pt-6">
+                    Transliteration available only in Malayalam mode.
                   </div>
                 )}
 
                 {!song.lyrics && (
-                   <div className="text-slate-400 italic text-center">
-                    [Lyrics not available]
+                   <div className="text-slate-400 italic text-center py-10">
+                    Lyrics not available.
                   </div>
                 )}
             </div>
             
-            {/* Footer decoration */}
-            <div className="mt-8 md:mt-12 flex justify-center items-center gap-2 opacity-40">
-               <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-red-300 rounded-full"></div>
-               <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-green-300 rounded-full"></div>
-               <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-amber-300 rounded-full"></div>
+            {/* End Mark */}
+            <div className="mt-12 flex justify-center opacity-30">
+               <Music className="w-5 h-5 text-slate-400" />
             </div>
+            
+            {/* Bottom spacer for mobile */}
+            <div className="h-20 md:hidden"></div>
         </div>
       </div>
     </div>

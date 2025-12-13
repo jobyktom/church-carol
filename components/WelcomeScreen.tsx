@@ -16,67 +16,62 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onStart }) => {
           alt="Christmas Background" 
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-green-950/90 via-red-950/80 to-black/80 backdrop-blur-[2px]"></div>
+        {/* Darker overlay for better text contrast */}
+        <div className="absolute inset-0 bg-black/60 backdrop-blur-[1px]"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/40"></div>
       </div>
 
       {/* CSS Snowflakes */}
-      {[...Array(12)].map((_, i) => (
+      {[...Array(15)].map((_, i) => (
         <div 
           key={i} 
           className="snowflake" 
           style={{ 
             left: `${Math.random() * 100}%`, 
             animationDuration: `${5 + Math.random() * 5}s`,
-            animationDelay: `${Math.random() * 5}s`
+            animationDelay: `${Math.random() * 5}s`,
+            opacity: 0.7
           }}
         >
           ❄
         </div>
       ))}
 
-      {/* Decorative background elements (now subtle lights on top of overlay) */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
-         <div className="absolute -top-32 -left-32 w-80 h-80 rounded-full bg-red-600/10 blur-3xl mix-blend-screen"></div>
-         <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-green-500/10 blur-3xl mix-blend-screen"></div>
-      </div>
-
-      <div className="relative z-10 flex flex-col items-center w-full max-w-md">
-        <div className="mb-10 p-8 bg-white/10 backdrop-blur-md rounded-full shadow-2xl ring-4 ring-amber-400/30 flex items-center justify-center relative">
-           <div className="absolute -top-3 -right-3 text-amber-300 animate-pulse">
-             <Star className="w-8 h-8 fill-current" />
+      <div className="relative z-10 flex flex-col items-center w-full max-w-md text-center">
+        
+        {/* Animated Icon */}
+        <div className="mb-10 p-6 bg-white/5 backdrop-blur-xl rounded-2xl shadow-2xl ring-1 ring-white/20 flex items-center justify-center relative">
+           <div className="absolute -top-3 -right-3 text-amber-400 animate-pulse">
+             <Star className="w-8 h-8 fill-current drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]" />
            </div>
-           <span className="text-7xl drop-shadow-2xl filter">🎄</span>
+           <span className="text-7xl filter drop-shadow-2xl">🎄</span>
         </div>
         
-        <h1 className="font-cinzel text-5xl md:text-6xl font-bold text-center mb-4 leading-tight tracking-tight drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)] text-amber-50">
+        <h1 className="font-cinzel text-4xl md:text-5xl font-bold text-center mb-4 leading-tight tracking-wide text-amber-50 drop-shadow-lg">
           St. George<br/>
           <span className="text-amber-400">Mission</span>
         </h1>
         
-        {/* Candy Cane Divider */}
-        <div className="w-32 h-2 rounded-full my-8 bg-[repeating-linear-gradient(45deg,#b91c1c,#b91c1c_10px,#fca5a5_10px,#fca5a5_20px)] shadow-inner"></div>
+        <div className="w-24 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent my-6 opacity-80"></div>
         
-        <h2 className="text-xl font-medium tracking-[0.3em] uppercase mb-12 text-red-100 text-center font-cinzel">
-          Christmas Carol Songs
+        <h2 className="text-lg font-medium tracking-[0.3em] uppercase mb-12 text-slate-200 font-cinzel drop-shadow-md">
+          Carol Song Book
         </h2>
         
         <button 
           onClick={onStart}
-          className="group w-full bg-gradient-to-r from-amber-400 to-amber-500 text-red-900 font-bold text-lg py-5 px-8 rounded-2xl shadow-xl shadow-amber-900/20 active:scale-[0.98] transition-all flex items-center justify-between border-b-4 border-amber-600 hover:brightness-110"
+          className="group w-full max-w-xs bg-white text-christmas-green font-bold text-lg py-4 px-8 rounded-full shadow-[0_0_20px_rgba(255,255,255,0.2)] active:scale-[0.98] transition-all flex items-center justify-between hover:bg-amber-50"
         >
           <span className="flex items-center gap-3">
-            <Music className="w-6 h-6 fill-red-800" />
-            <span className="font-cinzel font-bold">Open Songbook</span>
+            <Music className="w-5 h-5 text-amber-600" />
+            <span className="font-cinzel font-bold text-slate-900">Open Book</span>
           </span>
-          <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+          <ArrowRight className="w-5 h-5 text-slate-400 group-hover:text-slate-900 group-hover:translate-x-1 transition-all" />
         </button>
         
-        <div className="mt-12 text-center space-y-2">
-            <p className="text-white/40 text-xs font-medium uppercase tracking-widest font-sans">
+        <div className="mt-16 text-center space-y-2 opacity-60">
+            <p className="text-white text-[10px] font-medium uppercase tracking-[0.2em] font-sans">
               Joy to the World
-            </p>
-            <p className="text-white/30 text-[10px] font-medium tracking-wide">
-              Created by Jobby Kuttamperror Tom
             </p>
         </div>
       </div>

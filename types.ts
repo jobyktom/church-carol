@@ -10,11 +10,3 @@ export interface BookletMetadata {
   title: string;
   subtitle: string;
 }
-
-export interface ScheduleDay {
-  date: string;
-  day: string;
-  startTime: string;
-  startHouse: string;
-  houses: string[];
-}

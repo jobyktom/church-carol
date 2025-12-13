@@ -18,37 +18,30 @@ const App: React.FC = () => {
 
   const selectedSong = songs.find(s => s.id === selectedSongId) || songs[0];
 
-  // 1. Handle "Exit App" confirmation
   useEffect(() => {
     const handleBeforeUnload = (e: BeforeUnloadEvent) => {
-      // Only confirm exit if they've passed the welcome screen
       if (!showWelcome) {
         e.preventDefault();
         e.returnValue = ''; 
       }
     };
-
     window.addEventListener('beforeunload', handleBeforeUnload);
     return () => window.removeEventListener('beforeunload', handleBeforeUnload);
   }, [showWelcome]);
 
-  // 2. Handle Hardware Back Button (History API)
   useEffect(() => {
     const handlePopState = (event: PopStateEvent) => {
       if (showWelcome) return;
 
       const state = event.state;
       if (state && state.view === 'editor') {
-        // If history has editor state, restore it
         setMobileView('editor');
         setSelectedSongId(state.songId);
       } else {
-        // Fallback to list
         setMobileView('list');
         setSelectedSongId(null);
       }
     };
-
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
   }, [showWelcome]);
@@ -60,7 +53,6 @@ const App: React.FC = () => {
   const handleSelectSong = (id: number) => {
     setSelectedSongId(id);
     setMobileView('editor');
-    // Push a new entry to history
     window.history.pushState({ view: 'editor', type: 'song', songId: id }, '');
   };
 
@@ -74,29 +66,26 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="h-full w-full flex flex-col bg-slate-50 overflow-hidden print:bg-white print:h-auto print:overflow-visible">
+    <div className="h-full w-full flex flex-col bg-christmas-cream overflow-hidden print:bg-white print:h-auto print:overflow-visible text-slate-800">
       
       {showWelcome && (
         <WelcomeScreen onStart={handleStartApp} />
       )}
 
-      {/* 
-         Header: Always visible, simplified text
-      */}
-      <header className="bg-green-900 border-b-4 border-amber-400 h-20 flex items-center px-4 md:px-6 shadow-lg print:hidden flex-shrink-0 z-20 relative">
-        {/* Subtle texture overlay */}
-        <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, #ffffff 1px, transparent 1px)', backgroundSize: '12px 12px' }}></div>
-
-        <div className="flex items-center gap-3 relative z-10 w-full">
-          <div className="w-12 h-12 bg-red-700 rounded-lg flex items-center justify-center text-white font-bold text-2xl flex-shrink-0 shadow-lg border-2 border-amber-400/50">
-            🎄
+      {/* Header: Premium Dark Green */}
+      <header className="bg-christmas-green border-b border-christmas-gold/30 h-16 md:h-20 flex items-center px-4 md:px-6 shadow-xl print:hidden flex-shrink-0 z-20 relative">
+        <div className="flex items-center gap-4 relative z-10 w-full">
+          {/* Logo Icon */}
+          <div className="w-10 h-10 md:w-12 md:h-12 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center text-white border border-white/20 shadow-inner">
+            <span className="text-2xl filter drop-shadow-md">🎄</span>
           </div>
-          <div className="flex flex-col overflow-hidden">
-             <h1 className="font-cinzel font-bold text-amber-50 text-lg md:text-xl leading-none tracking-wide truncate">
+          
+          <div className="flex flex-col">
+             <h1 className="font-cinzel font-bold text-amber-50 text-lg md:text-2xl leading-none tracking-wide">
                St. George Mission
              </h1>
-             <span className="text-xs text-red-200 font-bold uppercase tracking-[0.15em] mt-1 truncate">
-               Christmas Carols
+             <span className="text-[10px] md:text-xs text-christmas-gold font-bold uppercase tracking-[0.25em] mt-1.5 md:mt-1 opacity-90">
+               Song Book
              </span>
           </div>
         </div>
@@ -107,7 +96,7 @@ const App: React.FC = () => {
         
         {/* Sidebar / List View */}
         <div className={`
-          absolute inset-0 z-10 bg-white md:static md:w-96 md:block h-full transition-transform duration-300 ease-out will-change-transform
+          absolute inset-0 z-10 bg-white md:static md:w-[26rem] md:block h-full transition-transform duration-300 ease-out will-change-transform border-r border-stone-200
           ${mobileView === 'list' ? 'translate-x-0' : '-translate-x-[20%] opacity-0 md:opacity-100 md:translate-x-0'}
         `}>
           <SongListSidebar 
@@ -119,7 +108,7 @@ const App: React.FC = () => {
         
         {/* Detail / Lyrics View */}
         <div className={`
-          absolute inset-0 z-20 md:static md:flex-1 h-full transition-transform duration-300 ease-out will-change-transform border-l border-amber-100 shadow-2xl md:shadow-none
+          absolute inset-0 z-20 md:static md:flex-1 h-full transition-transform duration-300 ease-out will-change-transform shadow-2xl md:shadow-none bg-christmas-cream
           ${mobileView === 'editor' ? 'translate-x-0' : 'translate-x-full md:translate-x-0'}
         `}>
           <LyricsEditor 
@@ -137,7 +126,6 @@ const App: React.FC = () => {
           @page { margin: 0; size: auto; }
           body { background-color: white; -webkit-print-color-adjust: exact; }
           .page-break-after { page-break-after: always; }
-          /* Hide welcome screen on print if it happens to be open, though it shouldn't */
           .fixed { display: none !important; }
         }
       `}</style>

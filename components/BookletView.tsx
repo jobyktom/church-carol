@@ -19,18 +19,20 @@ export const BookletView: React.FC<BookletViewProps> = ({ songs, metadata }) => 
           <h2 className="text-3xl font-medium text-black">
             Christmas Carol Songs
           </h2>
+          <div className="w-20 h-1 bg-black/80 my-4"></div>
+          <p className="text-xl font-cinzel text-black italic">Friends of Dagenham</p>
         </div>
 
         {/* Credits Footer */}
         <div className="absolute bottom-16 left-0 w-full text-center">
              <p className="text-xs text-gray-500 uppercase tracking-widest">Designed & Created by</p>
-             <p className="text-sm font-semibold text-black mt-1">Jobby Kuttamperror Tom</p>
+             <p className="text-sm font-semibold text-black mt-1">Jobby Kuttamperoor Tom</p>
         </div>
       </div>
 
       {/* Table of Contents */}
       <div className="booklet-page h-[297mm] w-[210mm] p-16 page-break-after flex flex-col">
-        <h2 className="text-3xl font-bold mb-10 border-b-2 border-black pb-2 inline-block text-black">Contents</h2>
+        <h2 className="text-3xl font-bold mb-10 border-b-2 border-black pb-2 inline-block text-black">Index of Songs</h2>
         <ul className="space-y-4 flex-1">
           {songs.map((song) => (
             <li key={song.id} className="flex items-baseline gap-4 text-xl text-black">
