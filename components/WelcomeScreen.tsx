@@ -7,8 +7,18 @@ interface WelcomeScreenProps {
 
 export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onStart }) => {
   return (
-    <div className="fixed inset-0 bg-gradient-to-br from-green-900 via-red-900 to-green-950 flex flex-col items-center justify-center p-6 text-white z-50 animate-in fade-in duration-500 overflow-hidden">
+    <div className="fixed inset-0 flex flex-col items-center justify-center p-6 text-white z-50 animate-in fade-in duration-500 overflow-hidden">
       
+      {/* Background Image & Overlay */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="https://images.unsplash.com/photo-1543589077-47d81606c1bf?q=80&w=2574&auto=format&fit=crop" 
+          alt="Christmas Background" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-green-950/90 via-red-950/80 to-black/80 backdrop-blur-[2px]"></div>
+      </div>
+
       {/* CSS Snowflakes */}
       {[...Array(12)].map((_, i) => (
         <div 
@@ -24,14 +34,14 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onStart }) => {
         </div>
       ))}
 
-      {/* Decorative background elements */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-         <div className="absolute -top-32 -left-32 w-80 h-80 rounded-full bg-red-600/20 blur-3xl mix-blend-screen"></div>
+      {/* Decorative background elements (now subtle lights on top of overlay) */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
+         <div className="absolute -top-32 -left-32 w-80 h-80 rounded-full bg-red-600/10 blur-3xl mix-blend-screen"></div>
          <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-green-500/10 blur-3xl mix-blend-screen"></div>
       </div>
 
       <div className="relative z-10 flex flex-col items-center w-full max-w-md">
-        <div className="mb-10 p-8 bg-white/5 backdrop-blur-md rounded-full shadow-2xl ring-4 ring-amber-400/30 flex items-center justify-center relative">
+        <div className="mb-10 p-8 bg-white/10 backdrop-blur-md rounded-full shadow-2xl ring-4 ring-amber-400/30 flex items-center justify-center relative">
            <div className="absolute -top-3 -right-3 text-amber-300 animate-pulse">
              <Star className="w-8 h-8 fill-current" />
            </div>
