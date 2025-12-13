@@ -1,4 +1,4 @@
-name: Build and Deploy to Hostinger (FTP)
+name: Build and Deploy (FTP)
 
 on:
   push:
@@ -8,6 +8,7 @@ on:
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -23,8 +24,8 @@ jobs:
       - name: Build
         run: npm run build
 
-      # Helps with refresh/route handling on Apache hosting (common on shared hosting)
-      - name: Add SPA .htaccess fallback
+      # SPA fallback for refresh/deep links (safe even if you don't use React Router)
+      - name: Add .htaccess fallback
         run: |
           cat > dist/.htaccess << 'EOF'
           <IfModule mod_rewrite.c>
@@ -44,5 +45,5 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: dist/
-          server-dir: ${{ secrets.FTP_SERVER_DIR }}
+          server-dir: carol/
           dangerous-clean-slate: true
