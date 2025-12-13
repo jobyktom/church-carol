@@ -1,25 +1,35 @@
 import React from 'react';
 import { Song } from '../types';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, Home } from 'lucide-react';
 
 interface SongListSidebarProps {
   songs: Song[];
   selectedSongId: number | null;
   onSelectSong: (id: number) => void;
+  onHome: () => void;
 }
 
 export const SongListSidebar: React.FC<SongListSidebarProps> = ({ 
   songs, 
   selectedSongId, 
-  onSelectSong 
+  onSelectSong,
+  onHome
 }) => {
   return (
     <div className="w-full h-full flex flex-col bg-white">
       
       <div className="flex-1 overflow-y-auto overscroll-contain pb-safe-area scrollbar-thin">
         {/* Header Label */}
-        <div className="px-5 py-4 bg-slate-50 border-b border-slate-100 sticky top-0 z-10">
+        <div className="px-5 py-4 bg-slate-50 border-b border-slate-100 sticky top-0 z-10 flex items-center justify-between">
           <span className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">Index of Songs</span>
+          <button 
+            onClick={onHome}
+            className="flex items-center gap-1.5 px-2 py-1 -mr-2 text-[10px] font-bold uppercase tracking-widest text-christmas-gold hover:text-christmas-green transition-colors rounded-md hover:bg-white"
+            title="Back to Home Screen"
+          >
+            <Home className="w-3.5 h-3.5" />
+            <span>Home</span>
+          </button>
         </div>
 
         <ul className="divide-y divide-slate-100">
@@ -39,10 +49,10 @@ export const SongListSidebar: React.FC<SongListSidebarProps> = ({
                     <div className="absolute left-0 top-0 bottom-0 w-[4px] bg-christmas-gold"></div>
                   )}
 
-                  {/* Song Number */}
+                  {/* Song Number - Changed to Red */}
                   <div className={`
                     text-lg font-cinzel font-bold w-8 text-center flex-shrink-0 transition-colors
-                    ${isSelected ? 'text-christmas-gold' : 'text-slate-300 group-hover:text-slate-400'}
+                    ${isSelected ? 'text-christmas-gold' : 'text-christmas-red/80 group-hover:text-christmas-red'}
                   `}>
                     {song.id < 10 ? `0${song.id}` : song.id}
                   </div>
@@ -55,7 +65,7 @@ export const SongListSidebar: React.FC<SongListSidebarProps> = ({
                       {song.title}
                     </h3>
                     {song.originalTitle && song.originalTitle !== song.title && (
-                      <p className={`text-xs font-medium uppercase tracking-wide truncate ${isSelected ? 'text-amber-700/80' : 'text-slate-400'}`}>
+                      <p className={`text-xs font-medium uppercase tracking-wide truncate ${isSelected ? 'text-amber-700/80' : 'text-slate-500 group-hover:text-slate-600'}`}>
                         {song.originalTitle}
                       </p>
                     )}

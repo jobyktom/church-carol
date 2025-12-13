@@ -106,7 +106,7 @@ export const LyricsEditor: React.FC<LyricsEditorProps> = ({ song, onBack }) => {
                 {song.title}
               </h1>
               {song.originalTitle && song.originalTitle !== song.title && (
-                <p className="text-slate-500 font-serif italic text-lg md:text-xl">
+                <p className="text-christmas-gold/90 font-serif italic text-lg md:text-xl">
                   {song.originalTitle}
                 </p>
               )}

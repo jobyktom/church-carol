@@ -103,6 +103,7 @@ const App: React.FC = () => {
             songs={songs} 
             selectedSongId={selectedSongId} 
             onSelectSong={handleSelectSong} 
+            onHome={() => setShowWelcome(true)}
           />
         </div>
         
