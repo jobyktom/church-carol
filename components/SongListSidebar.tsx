@@ -18,7 +18,7 @@ export const SongListSidebar: React.FC<SongListSidebarProps> = ({
   return (
     <div className="w-full h-full flex flex-col bg-white">
       
-      <div className="flex-1 overflow-y-auto overscroll-contain pb-safe-area scrollbar-thin">
+      <div className="flex-1 overflow-y-auto overscroll-contain pb-safe-area scrollbar-thin flex flex-col">
         {/* Header Label */}
         <div className="px-5 py-4 bg-slate-50 border-b border-slate-100 sticky top-0 z-10 flex items-center justify-between">
           <span className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">Index of Songs</span>
@@ -32,7 +32,7 @@ export const SongListSidebar: React.FC<SongListSidebarProps> = ({
           </button>
         </div>
 
-        <ul className="divide-y divide-slate-100">
+        <ul className="divide-y divide-slate-100 flex-1">
           {songs.map((song) => {
             const isSelected = selectedSongId === song.id;
             return (
@@ -82,7 +82,7 @@ export const SongListSidebar: React.FC<SongListSidebarProps> = ({
         </ul>
 
         {/* Footer Credits */}
-        <div className="py-12 px-6 text-center">
+        <div className="py-8 px-6 text-center">
            <div className="w-12 h-px bg-slate-200 mx-auto mb-4"></div>
            <p className="text-[10px] uppercase tracking-widest text-slate-400 font-semibold mb-1">Prepared by</p>
            <p className="text-xs font-cinzel text-slate-600">Jobby Kuttamperoor Tom</p>

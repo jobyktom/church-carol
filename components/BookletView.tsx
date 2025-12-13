@@ -20,7 +20,7 @@ export const BookletView: React.FC<BookletViewProps> = ({ songs, metadata }) => 
             Christmas Carol Songs
           </h2>
           <div className="w-20 h-1 bg-black/80 my-4"></div>
-          <p className="text-xl font-cinzel text-black italic">Friends of Dagenham</p>
+          <p className="text-xl font-cinzel text-black italic">Friends of Dagenham Christmas Carols</p>
         </div>
 
         {/* Credits Footer */}

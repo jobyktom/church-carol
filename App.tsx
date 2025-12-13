@@ -124,7 +124,7 @@ const App: React.FC = () => {
       
       <style>{`
         @media print {
-          @page { margin: 0; size: auto; }
+          @page { margin: 0; size: A4; }
           body { background-color: white; -webkit-print-color-adjust: exact; }
           .page-break-after { page-break-after: always; }
           .fixed { display: none !important; }
