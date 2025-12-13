@@ -543,6 +543,47 @@ Good tidings for Christmas and a Happy New Year
 
 We wish you a Merry Christmas`
   },
+  {
+    id: 13,
+    title: 'Jingle Bells',
+    originalTitle: 'Jingle Bells',
+    lyrics: `Dashing through the snow
+In a one-horse open sleigh
+O'er the fields we go
+Laughing all the way
+Bells on bobtails ring
+Making spirits bright
+What fun it is to ride and sing
+A sleighing song tonight
+
+Jingle bells, jingle bells
+Jingle all the way
+Oh! what fun it is to ride
+In a one-horse open sleigh (2)
+
+Jingle bells, jingle bells
+Jingle all the way
+Oh! what fun it is to ride
+In a one-horse open sleigh (2)`,
+    lyricsManglish: `Dashing through the snow
+In a one-horse open sleigh
+O'er the fields we go
+Laughing all the way
+Bells on bobtails ring
+Making spirits bright
+What fun it is to ride and sing
+A sleighing song tonight
+
+Jingle bells, jingle bells
+Jingle all the way
+Oh! what fun it is to ride
+In a one-horse open sleigh (2)
+
+Jingle bells, jingle bells
+Jingle all the way
+Oh! what fun it is to ride
+In a one-horse open sleigh (2)`
+  }
 ];
 
 export const APP_TITLE = "St. Monica Mission Christmas Carol Songs Lyrics";
