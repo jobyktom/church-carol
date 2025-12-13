@@ -1,4 +1,4 @@
-import { Song } from './types';
+import { Song, ScheduleDay } from './types';
 
 export const INITIAL_SONGS: Song[] = [
   {
@@ -587,3 +587,30 @@ In a one-horse open sleigh (2)`
 ];
 
 export const APP_TITLE = "St. George Mission Christmas Carol Songs Lyrics";
+
+export const HOUSE_SCHEDULE: ScheduleDay[] = [
+  {
+    day: "Saturday",
+    date: "Dec 14",
+    startTime: "05:00 PM",
+    startHouse: "Mr. & Mrs. Thomas",
+    houses: [
+      "House A",
+      "House B",
+      "House C",
+      "House D"
+    ]
+  },
+  {
+    day: "Saturday",
+    date: "Dec 21",
+    startTime: "04:30 PM",
+    startHouse: "Mr. & Mrs. Joseph",
+    houses: [
+      "House E",
+      "House F",
+      "House G",
+      "House H"
+    ]
+  }
+];
