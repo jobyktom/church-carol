@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="theme-color" content="#14532d" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <title>Carol Booklet Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Manjari:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      /* Force full viewport size on mobile */
+      html, body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden; /* Prevent body scroll, let App handle it */
+        font-family: 'Inter', sans-serif;
+        overscroll-behavior-y: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+      
+      #root {
+        height: 100%;
+        width: 100%;
+      }
+
+      .font-cinzel {
+        font-family: 'Cinzel', serif;
+      }
+      .malayalam-text {
+        font-family: 'Manjari', sans-serif;
+      }
+      /* Custom Scrollbar for cleaner look */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 3px;
+      }
+      
+      /* Print overrides: Allow full content flow */
+      @media print {
+        html, body {
+          height: auto;
+          overflow: visible;
+          background: white;
+        }
+        #root {
+          height: auto;
+          overflow: visible;
+        }
+        @page {
+          margin: 0;
+          size: A4;
+        }
+      }
+      
+      /* Snow animation */
+      @keyframes snowfall {
+        0% { transform: translateY(-10px) translateX(0) rotate(0deg); opacity: 0; }
+        20% { opacity: 1; }
+        100% { transform: translateY(100vh) translateX(20px) rotate(360deg); opacity: 0; }
+      }
+      .snowflake {
+        position: absolute;
+        color: white;
+        font-size: 1em;
+        opacity: 0;
+        animation: snowfall linear infinite;
+        pointer-events: none;
+      }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "@google/generative-ai": "https://esm.sh/@google/generative-ai@^0.24.1",
+    "lucide-react": "https://esm.sh/lucide-react@^0.561.0",
+    "vite": "https://esm.sh/vite@^7.2.7",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
