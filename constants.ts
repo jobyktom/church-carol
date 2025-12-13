@@ -587,36 +587,3 @@ In a one-horse open sleigh (2)`
 ];
 
 export const APP_TITLE = "St. George Mission Christmas Carol Songs Lyrics";
-
-export const HOUSE_SCHEDULE = [
-  {
-    day: 'Saturday',
-    date: 'December 21',
-    startTime: '4:00 PM',
-    startHouse: 'Jobby & Family',
-    houses: [
-      'Jobby & Family',
-      'Bibin & Family',
-      'Jijo & Family',
-      'Sijo & Family',
-      'Tijo & Family',
-      'Justin & Family',
-      'Shibu & Family'
-    ]
-  },
-  {
-    day: 'Sunday',
-    date: 'December 22',
-    startTime: '3:00 PM',
-    startHouse: 'Babu & Family',
-    houses: [
-      'Babu & Family',
-      'Saji & Family',
-      'Jose & Family',
-      'Shaji & Family',
-      'Roy & Family',
-      'Biju & Family',
-      'Thomas & Family'
-    ]
-  }
-];
