@@ -583,6 +583,92 @@ Jingle bells, jingle bells
 Jingle all the way
 Oh! what fun it is to ride
 In a one-horse open sleigh (2)`
+  },
+  {
+    id: 14,
+    title: 'Mary, Did You Know?',
+    originalTitle: 'Mary, Did You Know?',
+    lyrics: `Mary, did you know that your Baby Boy would one day walk on water?
+Mary, did you know that your Baby Boy would save our sons and daughters?
+Did you know that your Baby Boy has come to make you new?
+This Child that you delivered will soon deliver you.
+
+Mary, did you know that your Baby Boy will give sight to a blind man?
+Mary, did you know that your Baby Boy will calm the storm with His hand?
+Did you know that your Baby Boy has walked where angels trod?
+And when you kiss your little Baby you kissed the face of God?
+
+Mary, did you know? The blind will see, the deaf will hear.
+The dead will live again. The lame will leap, the dumb will speak
+The praises of The Lamb.
+
+Mary, did you know that your Baby Boy is Lord of all creation?
+Mary, did you know that your Baby Boy would one day rule the nations?
+Did you know that your Baby Boy is heaven's perfect Lamb?
+The sleeping Child you're holding is the Great, I Am.`,
+    lyricsManglish: `Mary, did you know that your Baby Boy would one day walk on water?
+Mary, did you know that your Baby Boy would save our sons and daughters?
+Did you know that your Baby Boy has come to make you new?
+This Child that you delivered will soon deliver you.
+
+Mary, did you know that your Baby Boy will give sight to a blind man?
+Mary, did you know that your Baby Boy will calm the storm with His hand?
+Did you know that your Baby Boy has walked where angels trod?
+And when you kiss your little Baby you kissed the face of God?
+
+Mary, did you know? The blind will see, the deaf will hear.
+The dead will live again. The lame will leap, the dumb will speak
+The praises of The Lamb.
+
+Mary, did you know that your Baby Boy is Lord of all creation?
+Mary, did you know that your Baby Boy would one day rule the nations?
+Did you know that your Baby Boy is heaven's perfect Lamb?
+The sleeping Child you're holding is the Great, I Am.`
+  },
+  {
+    id: 15,
+    title: 'Joy to the World',
+    originalTitle: 'Joy to the World',
+    lyrics: `Joy to the world, the Lord is come!
+Let earth receive her King;
+Let every heart prepare Him room,
+And heaven and nature sing,
+And heaven and nature sing,
+And heaven, and heaven, and nature sing.
+
+Joy to the world, the Savior reigns!
+Let men their songs employ;
+While fields and floods, rocks, hills and plains
+Repeat the sounding joy,
+Repeat the sounding joy,
+Repeat, repeat, the sounding joy.
+
+He rules the world with truth and grace,
+And makes the nations prove
+The glories of His righteousness,
+And wonders of His love,
+And wonders of His love,
+And wonders, wonders, of His love.`,
+    lyricsManglish: `Joy to the world, the Lord is come!
+Let earth receive her King;
+Let every heart prepare Him room,
+And heaven and nature sing,
+And heaven and nature sing,
+And heaven, and heaven, and nature sing.
+
+Joy to the world, the Savior reigns!
+Let men their songs employ;
+While fields and floods, rocks, hills and plains
+Repeat the sounding joy,
+Repeat the sounding joy,
+Repeat, repeat, the sounding joy.
+
+He rules the world with truth and grace,
+And makes the nations prove
+The glories of His righteousness,
+And wonders of His love,
+And wonders of His love,
+And wonders, wonders, of His love.`
   }
 ];
 

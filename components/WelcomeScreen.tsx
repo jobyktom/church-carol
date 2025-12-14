@@ -68,7 +68,7 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onStart }) => {
         >
           <span className="flex items-center gap-3">
             <Music className="w-5 h-5 text-amber-600" />
-            <span className="font-cinzel font-bold text-slate-900">Open Book</span>
+            <span className="font-cinzel font-bold text-slate-900">Open Songbook</span>
           </span>
           <ArrowRight className="w-5 h-5 text-slate-400 group-hover:text-slate-900 group-hover:translate-x-1 transition-all" />
         </button>

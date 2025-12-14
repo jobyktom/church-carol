@@ -39,26 +39,26 @@ export const LyricsEditor: React.FC<LyricsEditorProps> = ({ song, onBack }) => {
         </button>
         
         {hasManglish && (
-          <div className="flex bg-stone-100 p-0.5 rounded-lg border border-stone-200">
+          <div className="flex bg-christmas-green/10 p-1 rounded-full border border-christmas-green/20">
             <button
               onClick={() => setShowManglish(false)}
-              className={`px-3 py-1 rounded-[4px] text-[10px] font-bold uppercase tracking-wide transition-all ${
+              className={`px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-wider transition-all duration-300 ${
                 !showManglish 
-                  ? 'bg-white text-christmas-green shadow-sm ring-1 ring-black/5' 
-                  : 'text-slate-400'
+                  ? 'bg-christmas-green text-white shadow-md transform scale-105' 
+                  : 'text-christmas-green hover:bg-christmas-green/5'
               }`}
             >
-              Mal
+              Malayalam
             </button>
             <button
               onClick={() => setShowManglish(true)}
-              className={`px-3 py-1 rounded-[4px] text-[10px] font-bold uppercase tracking-wide transition-all ${
+              className={`px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-wider transition-all duration-300 ${
                 showManglish 
-                  ? 'bg-white text-christmas-green shadow-sm ring-1 ring-black/5' 
-                  : 'text-slate-400'
+                  ? 'bg-christmas-green text-white shadow-md transform scale-105' 
+                  : 'text-christmas-green hover:bg-christmas-green/5'
               }`}
             >
-              Eng
+              Manglish
             </button>
           </div>
         )}
@@ -73,16 +73,24 @@ export const LyricsEditor: React.FC<LyricsEditorProps> = ({ song, onBack }) => {
          </div>
 
          {hasManglish && (
-           <div className="flex bg-stone-100 p-1 rounded-lg border border-stone-200/80">
+           <div className="flex bg-slate-100/80 p-1 rounded-xl border border-slate-200 shadow-inner">
              <button
                onClick={() => setShowManglish(false)}
-               className={`px-4 py-1.5 rounded-md text-xs font-bold uppercase tracking-wider transition-all ${!showManglish ? 'bg-white text-christmas-green shadow-sm ring-1 ring-black/5' : 'text-slate-400 hover:text-slate-600'}`}
+               className={`px-6 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
+                 !showManglish 
+                  ? 'bg-gradient-to-r from-christmas-green to-emerald-900 text-white shadow-md ring-1 ring-black/10 transform scale-105' 
+                  : 'text-slate-600 hover:bg-white/50'
+               }`}
              >
                Malayalam
              </button>
              <button
                onClick={() => setShowManglish(true)}
-               className={`px-4 py-1.5 rounded-md text-xs font-bold uppercase tracking-wider transition-all ${showManglish ? 'bg-white text-christmas-green shadow-sm ring-1 ring-black/5' : 'text-slate-400 hover:text-slate-600'}`}
+               className={`px-6 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
+                 showManglish 
+                  ? 'bg-gradient-to-r from-christmas-green to-emerald-900 text-white shadow-md ring-1 ring-black/10 transform scale-105' 
+                  : 'text-slate-600 hover:bg-white/50'
+               }`}
              >
                Manglish
              </button>
