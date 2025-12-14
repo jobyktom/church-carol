@@ -40,23 +40,27 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onStart }) => {
       <div className="relative z-10 flex flex-col items-center w-full max-w-md text-center">
         
         {/* Animated Icon */}
-        <div className="mb-10 p-6 bg-white/5 backdrop-blur-xl rounded-2xl shadow-2xl ring-1 ring-white/20 flex items-center justify-center relative">
+        <div className="mb-8 p-6 bg-white/5 backdrop-blur-xl rounded-2xl shadow-2xl ring-1 ring-white/20 flex items-center justify-center relative">
            <div className="absolute -top-3 -right-3 text-amber-400 animate-pulse">
              <Star className="w-8 h-8 fill-current drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]" />
            </div>
            <span className="text-7xl filter drop-shadow-2xl">🎄</span>
         </div>
         
-        <h1 className="font-cinzel text-4xl md:text-5xl font-bold text-center mb-4 leading-tight tracking-wide text-amber-50 drop-shadow-lg">
+        <h1 className="font-cinzel text-4xl md:text-5xl font-bold text-center leading-tight tracking-wide text-amber-50 drop-shadow-lg">
           St. George<br/>
           <span className="text-amber-400">Mission</span>
         </h1>
         
+        <h2 className="font-cinzel text-xl md:text-2xl text-slate-300 mt-2 mb-4 tracking-widest uppercase drop-shadow-md">
+          Eastham
+        </h2>
+        
         <div className="w-24 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent my-6 opacity-80"></div>
         
-        <h2 className="text-lg font-medium tracking-[0.3em] uppercase mb-12 text-slate-200 font-cinzel drop-shadow-md">
+        <h3 className="text-lg font-medium tracking-[0.3em] uppercase mb-12 text-slate-200 font-cinzel drop-shadow-md">
           Carol Song Book
-        </h2>
+        </h3>
         
         <button 
           onClick={onStart}
@@ -69,13 +73,13 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onStart }) => {
           <ArrowRight className="w-5 h-5 text-slate-400 group-hover:text-slate-900 group-hover:translate-x-1 transition-all" />
         </button>
         
-        <div className="mt-16 text-center space-y-4 opacity-80">
-            <p className="text-white text-[10px] font-medium uppercase tracking-[0.2em] font-sans">
+        <div className="mt-16 text-center space-y-4 opacity-90">
+            <p className="text-white text-[10px] font-medium uppercase tracking-[0.2em] font-sans opacity-80">
               Joy to the World
             </p>
-            <div className="flex flex-col items-center gap-1">
-              <span className="text-[10px] text-slate-400 uppercase tracking-widest">Designed & Created by</span>
-              <span className="text-xs font-cinzel text-amber-100/90">Jobby Kuttamperoor Tom</span>
+            <div className="flex flex-col items-center gap-1 pt-2">
+              <span className="text-[10px] text-slate-300 uppercase tracking-widest">Compiled by</span>
+              <span className="text-sm font-cinzel text-amber-100 font-bold tracking-wider">St. George Mission</span>
             </div>
         </div>
       </div>

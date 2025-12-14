@@ -16,9 +16,12 @@ export const BookletView: React.FC<BookletViewProps> = ({ songs, metadata }) => 
           <h1 className="text-4xl font-bold uppercase tracking-wide text-black">
             St. George Mission
           </h1>
-          <h2 className="text-3xl font-medium text-black">
-            Christmas Carol Songs
+          <h2 className="text-2xl font-cinzel text-gray-700 tracking-widest uppercase">
+            Eastham
           </h2>
+          <div className="mt-2 text-3xl font-medium text-black">
+            Christmas Carol Songs
+          </div>
           <div className="w-20 h-1 bg-black/80 my-4"></div>
           <p className="text-xl font-cinzel text-black italic">Friends of Dagenham Christmas Carols</p>
         </div>
